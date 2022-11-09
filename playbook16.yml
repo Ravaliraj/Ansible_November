@@ -1,0 +1,22 @@
+---
+- name: Implementing tags
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: Ravi
+        password: intelliqit
+      tags: user_creation
+    - name: Create a directory
+      file:
+        name: /tmp/dir1
+        state: directory
+      tags: dir_creation
+    - name: Copy passwd file
+      copy:
+        src: /etc/passwd
+        dest: /tmp
+...
+    
