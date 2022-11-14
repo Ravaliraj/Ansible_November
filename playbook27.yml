@@ -1,0 +1,6 @@
+---
+- name: Call multiple ansible playbooks
+  hosts: all
+  tasks:
+    - name: Call multiple playbooks
+      shell: "ansible-playbook /home/ubuntu/playbooks/playbook1.yml -b"
