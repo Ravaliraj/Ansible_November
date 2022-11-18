@@ -1,0 +1,19 @@
+---
+- name: Example fo pre tasks and post tasks
+  hosts: all
+  pre_tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+  tasks:
+    - name: Clone a remote git repo
+      git:
+        repo: https://github.com/intelliqittrainings/maven.git
+        dest: /tmp/mygit
+  post_tasks:
+    - name: Unstall git
+      apt:
+        name: git
+        state: absent

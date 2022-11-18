@@ -1,0 +1,14 @@
+---
+- name: Login into dockerhub and push an image
+  hosts: 172.31.16.244
+  tasks:
+    - name: Login into dockerhub
+      docker_login:
+        username: sai
+        password: krishna
+    - name: Push the docker image
+      docker_image:
+        name: intelliqit/jenkins18
+        source: local
+        push: true
+    

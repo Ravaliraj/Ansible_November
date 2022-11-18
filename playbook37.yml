@@ -1,0 +1,12 @@
+
+---
+- name: Create multiple nginx containers for load balancing
+  hosts: all
+  tasks:
+    - name: Create  nginx containers
+      docker_container:
+        name: "container{{item}}"
+        image: nginx
+      loop: "{{[0,4,8,9,1]}}"
+
+
